@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+Test set: com.mycompany.javatest.CuentaTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+com.mycompany.javatest.CuentaTest.testDimeContra()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.mycompany.javatest.Cuenta.dimeContra()" because "instance" is null
+	at com.mycompany.javatest.CuentaTest.testDimeContra(CuentaTest.java:57)
+
+com.mycompany.javatest.CuentaTest.testRetira()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1000> but was: <250>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
+	at com.mycompany.javatest.CuentaTest.testRetira(CuentaTest.java:38)
+
+com.mycompany.javatest.CuentaTest.testDimeSaldo()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.mycompany.javatest.Cuenta.dimeSaldo()" because "instance" is null
+	at com.mycompany.javatest.CuentaTest.testDimeSaldo(CuentaTest.java:47)
+
