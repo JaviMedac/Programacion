@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.util.TimerTask;
+import java.util.Timer;
+
 /**
  *
  * @author usuario
@@ -15,6 +18,23 @@ public class PanelPreguntas extends javax.swing.JFrame {
      */
     public PanelPreguntas() {
         initComponents();
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            int ti = 4;
+
+            @Override
+            public void run() {
+                if (ti != 0) {
+                    jLabel1.setText(String.valueOf(ti));
+                    ti--;
+
+                } else {
+                    System.exit(0);
+                }
+            }
+        };
+        timer.schedule(task, 10, 1000);
+
     }
 
     /**
@@ -26,17 +46,28 @@ public class PanelPreguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addComponent(jLabel1)
+                .addContainerGap(412, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(300, Short.MAX_VALUE))
         );
 
         pack();
@@ -73,10 +104,12 @@ public class PanelPreguntas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PanelPreguntas().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
