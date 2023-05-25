@@ -224,10 +224,7 @@ public class Logros extends javax.swing.JFrame {
             jButton4.setText("Logro 4");
 
         }
-        if (nombreLogro.equalsIgnoreCase(jButton5.getText())) {
-            jButton5.setText("Logro 5");
-
-        }
+        
        
 
     }
