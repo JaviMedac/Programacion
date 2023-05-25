@@ -4,8 +4,6 @@
  */
 package Vista;
 
-import vista.VentanaJuego;
-
 /**
  *
  * @author usuario

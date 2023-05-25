@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vista;
+package Vista;
 
 import Controlador.ConexionMySQL;
 import Controlador.ControladorPreguntas;
@@ -33,9 +33,14 @@ public class VentanaJuego extends javax.swing.JFrame {
 
     public VentanaJuego(){
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        conexion = new ConexionMySQL("root", "", "respuestas");
+        controlar = new ControladorPreguntas(conexion);
     }
     public VentanaJuego(String tabla) {
         initComponents();
+        conexion = new ConexionMySQL("root", "", "respuestas");
+        controlar = new ControladorPreguntas(conexion);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         llenarPreguntasDeportes(preguntasDeportes);
         llenarPreguntasVideojuegos(preguntasVideojuegos);
