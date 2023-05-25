@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pruebaaaaaaaaa;
+package Vista;
+
+import vista.VentanaJuego;
 
 /**
  *
@@ -63,9 +65,9 @@ public class Eleccion extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 204, 255));
         jLabel4.setText("OS");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebaaaaaaaaa/signo-de-interrogacion.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signo-de-interrogacion.png"))); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebaaaaaaaaa/signo-de-interrogacion - copia.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signo-de-interrogacion - copia.png"))); // NOI18N
         jLabel6.setAlignmentX(-10.0F);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,14 +85,14 @@ public class Eleccion extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(108, Short.MAX_VALUE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(91, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(108, 108, 108))
         );
@@ -117,16 +119,16 @@ public class Eleccion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        if(jComboBox1.getSelectedIndex()==1){
-            VentanaJuego vp = new VentanaJuego("respuestas");
+         if(jComboBox1.getSelectedIndex()==1){
+            VentanaJuego vp = new VentanaJuego();
             vp.setVisible(true);
             this.setVisible(false);
         }else if(jComboBox1.getSelectedIndex()==2){
-            VentanaJuego vp = new VentanaJuego("videojuegos");
+            VentanaJuego vp = new VentanaJuego();
             vp.setVisible(true);
             this.setVisible(false);
         }
+       
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
@@ -154,6 +156,8 @@ public class Eleccion extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Eleccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
