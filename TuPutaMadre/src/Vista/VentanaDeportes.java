@@ -6,6 +6,10 @@ package Vista;
 
 import Controlador.ConexionMySQL;
 import Controlador.ControladorPreguntas;
+import Modelo.PreguntasDeportes;
+import Modelo.PreguntasVideojuegos;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,31 +34,46 @@ public class VentanaDeportes extends javax.swing.JFrame {
     ConexionMySQL conexion = new ConexionMySQL();
     ControladorPreguntas controlar = new ControladorPreguntas(conexion);
     TreeMap<String, String> preguntasDeportes = new TreeMap();
-    TreeMap<String, String> preguntasVideojuegos = new TreeMap();
+    int puntos = 0;
 
     public VentanaDeportes() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        conexion = new ConexionMySQL("root", "", "respuestas");
-        controlar = new ControladorPreguntas(conexion);
     }
 
     public VentanaDeportes(String tabla) {
         initComponents();
-        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        int dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        while (dificultad == 1) {
+            JOptionPane.showMessageDialog(null, "A llorar al parque, juégalo en dificil");
+            dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        }
+        JOptionPane.showMessageDialog(null, "Estas son las normas:\n1.Todas las preguntas pueden tener 0, 1 o más respuestas válidas. "
+                + "\n2. El programa nunca te dirá si quedan más respuestas posibles, ahí reside la dificultad."
+                + " \n3. Cada opción correcta suma 5 puntos, mientras que cada error restará 3 "
+                + "\n4. Si no te la quieres jugar a seguir perdiendo puntos, puedes pasar a la siguiente pregunta, pero recuerda, puedes quedarte sin preguntas "
+                + "\n5. Si sacas menos de 20 puntos eres un puto pringao");
+
+        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
 
         while (resp == 1) {
             JOptionPane.showMessageDialog(null, "Eres tonto o que, entonces a qué has venido");
-            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         }
-        conexion = new ConexionMySQL("root", "", "respuestas");
-        controlar = new ControladorPreguntas(conexion);
+
+        try {
+            this.conexion = new ConexionMySQL("root", "", "respuestas");
+            this.conexion.conectar();
+            this.controlar = new ControladorPreguntas(this.conexion);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("mierda");
+
+        }
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         llenarPreguntasDeportes(preguntasDeportes);
-        llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 270;
+            int ti = 40;
 
             @Override
             public void run() {
@@ -69,7 +88,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         };
         timer.schedule(task, 10, 1000);
         jLabel1.setText(preguntasDeportes.firstKey());
-        preguntasDeportes.remove(preguntasDeportes.firstKey());
+        jLabel3.setText(String.valueOf(puntos));
 
     }
 
@@ -103,6 +122,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         B10 = new javax.swing.JButton();
         EnviarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 255));
@@ -293,6 +313,10 @@ public class VentanaDeportes extends javax.swing.JFrame {
         jLabel1.setText("Pregunta");
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel3.setText("Puntuación");
+        jPanel1.add(jLabel3, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -308,7 +332,26 @@ public class VentanaDeportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
-        deshabilitarBoton(B1);
+         try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(3).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(3).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(3).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B1);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B1);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
@@ -358,24 +401,22 @@ public class VentanaDeportes extends javax.swing.JFrame {
     }
 
     public void llenarPreguntasDeportes(TreeMap preguntas) {
-        preguntas.put("¿Quién es de nacionalidad francesa?", "Francia");
-        preguntas.put("¿Quién tiene de apodo el bicho?", "Bicho");
-        preguntas.put("¿Quien de todos practica baloncesto?", "Baloncesto");
-        preguntas.put("¿Quién es de nacionalidad española?", "España");
-        preguntas.put("¿Quién es de nacionalidad italiana?", "Italia");
-        preguntas.put("¿Quién se apoda el chef", "Chef");
-        preguntas.put("¿Quién de todos practica tenis?", "Tenis");
-
-    }
-
-    public void llenarPreguntasVideojuegos(TreeMap preguntas) {
-        preguntas.put("¿Quién es de nacionalidad francesa?", "Francia");
-        preguntas.put("¿Quién tiene de apodo el bicho?", "Bicho");
-        preguntas.put("¿Quien de todos practica baloncesto?", "Baloncesto");
-        preguntas.put("¿Quién es de nacionalidad española?", "España");
-        preguntas.put("¿Quién es de nacionalidad italiana?", "Italia");
-        preguntas.put("¿Quién se apoda el chef", "Chef");
-        preguntas.put("¿Quién de todos practica tenis?", "Tenis");
+        preguntas.put("a. ¿Qué juego es Indie?", "Indie");
+        preguntas.put("b. ¿Qué juego es de 2009?", "2009");
+        preguntas.put("c. ¿Qué juego es protagonizado por un ladrón?", "Aventura");
+        preguntas.put("d. ¿Qué juego es PS3?", "PS3");
+        preguntas.put("e. ¿Qué juego es de Movil?", "Movil");
+        preguntas.put("f. ¿En qué juego sale el Kiko?", "Enningunopicha");
+        preguntas.put("g. ¿Qué juego es de Switch?", "Switch");
+        preguntas.put("h. ¿Qué juego es de la Super Nintendo?", "Super Nintendo");
+        preguntas.put("i. ¿A qué juego pertenece al conocido villano Sephiroth?", "1997");
+        preguntas.put("j. ¿Qué juego es de 1997?", "1997");
+        preguntas.put("k. ¿Qué juego es de JRPG?", "JRPG");
+        preguntas.put("l. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        preguntas.put("m. ¿Qué juego es de la Wii?", "Wii");
+        preguntas.put("n ¿Qué juego va de matar demonios con música de pastillero a toda polla?", "FPS");
+        preguntas.put("o. ¿Qué juego táctico de RiotGames está protagonizado por agentes?", "Shooter");
+        preguntas.put("p. ¿Qué juego es de 2001?", "2001");
 
     }
 
@@ -426,6 +467,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
     private javax.swing.JButton EnviarBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

@@ -72,7 +72,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 40;
+            int ti = 3;
 
             @Override
             public void run() {
@@ -80,14 +80,17 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                     jLabel2.setText(String.valueOf(ti));
                     ti--;
 
-                } else {
-                    int puntos = Integer.parseInt(jLabel1.getText());
-                    if(puntos > 40){
-                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
-                    }
-                    System.exit(0);
+                } else if (ti == 0) {
+                    jLabel2.setText(String.valueOf(ti));
+
+                    int resp = JOptionPane.showConfirmDialog(null, "Has conseguido más de 40 puntos, has obtenido un logro....", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+                    Eleccion ventana = new Eleccion();
+                    ventana.setVisible(true);
+                    ti = Integer.MAX_VALUE;
+                    dispose();                 
                 }
             }
+
         };
 
         timer.schedule(task, 10, 1000);
@@ -593,7 +596,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     }//GEN-LAST:event_B8ActionPerformed
 
     private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
-       try {
+        try {
             ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
             String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
             if (listaRespuestas.get(8).getCategoria().equalsIgnoreCase(respuesta)
@@ -731,7 +734,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     }//GEN-LAST:event_B14ActionPerformed
 
     private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
-       try {
+        try {
             ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
             String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
             if (listaRespuestas.get(14).getCategoria().equalsIgnoreCase(respuesta)
