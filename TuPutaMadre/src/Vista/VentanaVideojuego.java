@@ -50,7 +50,8 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                 + "\n2. El programa nunca te dirá si quedan más respuestas posibles, ahí reside la dificultad."
                 + " \n3. Cada opción correcta suma 5 puntos, mientras que cada error restará 3 "
                 + "\n4. Si no te la quieres jugar a seguir perdiendo puntos, puedes pasar a la siguiente pregunta, pero recuerda, puedes quedarte sin preguntas "
-                + "\n5. Si sacas menos de 20 puntos eres un puto pringao");
+                + "\n5. Si sacas menos de 20 puntos eres un puto pringao "
+                + "\n6. Las partidas cuentan con logros dinámicos, con un total de 5, intenta conseguirlos todos en una partida. Una vez que reinicies, se reiniciaran los logros");
 
         int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
 
@@ -74,6 +75,11 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         TimerTask task = new TimerTask() {
             int ti = 40;
             boolean finish = false;
+            boolean sinPreguntas = false;
+            String blocked1 = "";
+            String blocked2 = "";
+            String blocked3 = "";
+            String blocked4 = "";
 
             @Override
             public void run() {
@@ -83,6 +89,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                     ti--;
                     if (preguntasVideojuegos.isEmpty()) {
                         ti = 0;
+                        sinPreguntas = true;
                     }
 
                 } else if (!finish) {
@@ -91,27 +98,31 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
                     if (puntos > 40) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
-                        Logros ventana = new Logros();
-                        ventana.llenarLogros("Logro 4 - BLOQUEADO");
-                        ventana.setVisible(true);
+                        blocked1 = "Logro 1 - BLOQUEADO";
                     }
                     if (puntos > 80) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
-                        Logros ventana = new Logros();
-                        ventana.llenarLogros("Logro 5 - BLOQUEADO");
-                        ventana.setVisible(true);
+                        blocked2 = "Logro 2 - BLOQUEADO";
                     }
                     if (puntos > 100) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
-                        Logros ventana = new Logros();
-                        ventana.llenarLogros("Logro 6 - BLOQUEADO");
-                        ventana.setVisible(true);
+                        blocked3 = "Logro 3 - BLOQUEADO";
                     }
+                    if (sinPreguntas) {
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        blocked4 = "Logro 4 - BLOQUEADO";
+                    }
+                    Logros ventana = new Logros();
+                    ventana.llenarLogros(blocked1);
+                    ventana.llenarLogros(blocked2);
+                    ventana.llenarLogros(blocked3);
+                    ventana.llenarLogros(blocked4);
+                    ventana.setVisible(true);
                     int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
                     if (resp == 1) {
                         dispose();
                     } else {
-                        Eleccion ventana = new Eleccion();
+                        Eleccion ventana2 = new Eleccion();
                         ventana.setVisible(true);
                         dispose();
                     }
