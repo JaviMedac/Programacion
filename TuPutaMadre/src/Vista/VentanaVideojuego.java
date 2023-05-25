@@ -30,39 +30,49 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     /**
      * Creates new form VentanaJuego
      */
-    ConexionMySQL conexion = new ConexionMySQL();
-    ControladorPreguntas controlar = new ControladorPreguntas(conexion);
+    ConexionMySQL conexion;
+    ControladorPreguntas controlar;
     TreeMap<String, String> preguntasVideojuegos = new TreeMap();
     int puntos = 0;
 
     public VentanaVideojuego() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        conexion = new ConexionMySQL("root", "", "respuestas");
-        controlar = new ControladorPreguntas(conexion);
     }
 
     public VentanaVideojuego(String tabla) {
         initComponents();
-        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        int dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        while(dificultad == 1){
+            JOptionPane.showMessageDialog(null, "A llorar al parque, juégalo en dificil");
+            dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        }
+        JOptionPane.showMessageDialog(null, "Estas son las normas:\n1.Todas las preguntas pueden tener 0, 1 o más respuestas válidas. "
+                + "\n2. El programa nunca te dirá si quedan más respuestas posibles, ahí reside la dificultad."
+                + " \n3. Cada opción correcta suma 5 puntos, mientras que cada error restará 3 "
+                + "\n4. Si no te la quieres jugar a seguir perdiendo puntos, puedes pasar a la siguiente pregunta, pero recuerda, puedes quedarte sin preguntas "
+                + "\n5. Si sacas menos de 20 puntos eres un puto pringao");
+
+        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 1 minuto para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
 
         while (resp == 1) {
             JOptionPane.showMessageDialog(null, "Eres tonto o que, entonces a qué has venido");
-            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 1 minuto para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         }
-        conexion = new ConexionMySQL("root", "", "respuestas");
-        controlar = new ControladorPreguntas(conexion);
+
         try {
-            conexion.conectar();
+            this.conexion = new ConexionMySQL("root", "", "respuestas");
+            this.conexion.conectar();
+            this.controlar = new ControladorPreguntas(this.conexion);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            System.out.println("mierda");
 
         }
-       // this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 270;
+            int ti = 60;
 
             @Override
             public void run() {
@@ -75,11 +85,10 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                 }
             }
         };
-        
+
         timer.schedule(task, 10, 1000);
         jLabel1.setText(preguntasVideojuegos.firstKey());
         jLabel3.setText(String.valueOf(puntos));
-        
 
     }
 
@@ -175,6 +184,11 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         B3.setBackground(new java.awt.Color(0, 204, 204));
         B3.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B3.setText("Hollow Night");
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
 
         B8.setBackground(new java.awt.Color(0, 204, 204));
         B8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
@@ -323,32 +337,81 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
-       try{
-        ArrayList<PreguntasVideojuegos> listaRespuestas = controlar.ObtenerTodosDatosVideojuegos();
-        String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
-           for(int i = 0; i < listaRespuestas.size(); i++){
-               System.out.println(listaRespuestas.get(i).getCategoria());
-           }
-        if(listaRespuestas.get(3).getCategoria().equalsIgnoreCase(respuesta)){
-            deshabilitarBoton(B1);
-            puntos = puntos + 1;
-            jLabel3.setText(String.valueOf(puntos));
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(3).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(3).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(3).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B1);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B1);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
         }
-       }
-       catch(SQLException e){
-           e.getMessage();
-       }
-        preguntasVideojuegos.remove(preguntasVideojuegos.firstKey());
-        
+
+
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
-        deshabilitarBoton(B2);
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(12).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(12).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(12).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B2);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B2);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
     }//GEN-LAST:event_B2ActionPerformed
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
+        preguntasVideojuegos.remove(preguntasVideojuegos.firstKey());
+        jLabel1.setText(preguntasVideojuegos.firstKey());
     }//GEN-LAST:event_EnviarBotonActionPerformed
+
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(0).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(0).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(0).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B3);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B3);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,7 +452,23 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     }
 
     public void llenarPreguntasVideojuegos(TreeMap preguntas) {
-        preguntas.put("¿Qué juego es de Plataformas?", "Plataforma");
+        preguntas.put("a. ¿Qué juego es Indie?", "Indie");
+        preguntas.put("b. ¿Qué juego es de 2009?", "2009");
+        preguntas.put("c. ¿Qué juego es protagonizado por un ladrón?", "Aventura");
+        preguntas.put("d. ¿Qué juego es PS3?", "PS3");
+        preguntas.put("e. ¿Qué juego es de Movil?", "Movil");
+        preguntas.put("f. ¿En qué juego sale el Kiko?", "Enningunopicha");
+        preguntas.put("g. ¿Qué juego es de Switch?", "Switch");
+        preguntas.put("h. ¿Qué juego es de la Super Nintendo?", "Super Nintendo");
+        preguntas.put("i. ¿A qué juego pertenece al conocido villano Sephiroth?", "1997");
+        preguntas.put("j. ¿Qué juego es de 1997?", "1997");
+        preguntas.put("k. ¿Qué juego es de JRPG?", "JRPG");
+        preguntas.put("l. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        preguntas.put("m. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        preguntas.put("n ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        preguntas.put("o. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        preguntas.put("p. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
+        
 
     }
 
