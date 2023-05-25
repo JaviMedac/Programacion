@@ -16,12 +16,13 @@ import java.util.TreeMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author usuario
  */
-public class VentanaJuego extends javax.swing.JFrame {
+public class VentanaDeportes extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaJuego
@@ -31,14 +32,21 @@ public class VentanaJuego extends javax.swing.JFrame {
     TreeMap<String, String> preguntasDeportes = new TreeMap();
     TreeMap<String, String> preguntasVideojuegos = new TreeMap();
 
-    public VentanaJuego(){
+    public VentanaDeportes() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         conexion = new ConexionMySQL("root", "", "respuestas");
         controlar = new ControladorPreguntas(conexion);
     }
-    public VentanaJuego(String tabla) {
+
+    public VentanaDeportes(String tabla) {
         initComponents();
+        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+
+        while (resp == 1) {
+            JOptionPane.showMessageDialog(null, "Eres tonto o que, entonces a qué has venido");
+            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 2 minutos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        }
         conexion = new ConexionMySQL("root", "", "respuestas");
         controlar = new ControladorPreguntas(conexion);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -60,7 +68,6 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         };
         timer.schedule(task, 10, 1000);
-        //jLabel1.setText(preguntas.firstKey());//
         jLabel1.setText(preguntasDeportes.firstKey());
         preguntasDeportes.remove(preguntasDeportes.firstKey());
 
@@ -117,7 +124,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         B1.setBackground(new java.awt.Color(0, 204, 204));
-        B1.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        B1.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B1.setText("jButton1");
         B1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,16 +133,19 @@ public class VentanaJuego extends javax.swing.JFrame {
         });
 
         B6.setBackground(new java.awt.Color(0, 204, 204));
+        B6.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B6.setText("jButton2");
 
         B11.setBackground(new java.awt.Color(0, 204, 204));
+        B11.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B11.setText("jButton2");
 
         B12.setBackground(new java.awt.Color(0, 204, 204));
+        B12.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B12.setText("jButton2");
 
         B2.setBackground(new java.awt.Color(0, 204, 204));
-        B2.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        B2.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B2.setText("jButton1");
         B2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,36 +154,43 @@ public class VentanaJuego extends javax.swing.JFrame {
         });
 
         B7.setBackground(new java.awt.Color(0, 204, 204));
+        B7.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B7.setText("jButton2");
 
         B13.setBackground(new java.awt.Color(0, 204, 204));
+        B13.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B13.setText("jButton2");
 
         B3.setBackground(new java.awt.Color(0, 204, 204));
-        B3.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        B3.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B3.setText("jButton1");
 
         B8.setBackground(new java.awt.Color(0, 204, 204));
+        B8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B8.setText("jButton2");
 
         B14.setBackground(new java.awt.Color(0, 204, 204));
+        B14.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B14.setText("jButton2");
 
         B4.setBackground(new java.awt.Color(0, 204, 204));
-        B4.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        B4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B4.setText("jButton1");
 
         B9.setBackground(new java.awt.Color(0, 204, 204));
+        B9.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B9.setText("jButton2");
 
         B15.setBackground(new java.awt.Color(0, 204, 204));
+        B15.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B15.setText("jButton2");
 
         B5.setBackground(new java.awt.Color(0, 204, 204));
-        B5.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        B5.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B5.setText("jButton1");
 
         B10.setBackground(new java.awt.Color(0, 204, 204));
+        B10.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B10.setText("jButton2");
 
         EnviarBoton.setText("Enviar Respuesta");
@@ -319,21 +336,23 @@ public class VentanaJuego extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDeportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDeportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDeportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDeportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaJuego().setVisible(true);
+                new VentanaDeportes().setVisible(true);
             }
         });
     }
