@@ -31,10 +31,14 @@ public class VentanaJuego extends javax.swing.JFrame {
     TreeMap<String, String> preguntasDeportes = new TreeMap();
     TreeMap<String, String> preguntasVideojuegos = new TreeMap();
 
-    public VentanaJuego() {
+    public VentanaJuego(){
         initComponents();
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        llenarPreguntasVideojuegos(preguntasDeportes);
+    }
+    public VentanaJuego(String tabla) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        llenarPreguntasDeportes(preguntasDeportes);
+        llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             int ti = 270;

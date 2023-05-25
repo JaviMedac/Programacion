@@ -56,7 +56,7 @@ public class PreguntasVideojuegos {
 
     @Override
     public String toString() {
-        return "PreguntasVideojuegos{" + "id=" + id + ", categoria=" + categoria + ", a\u00f1o_nacimiento=" + año_lanzamiento + ", consola=" + consola + '}';
+       return "PreguntasVideojuegos{" + "id=" + id + ", categoria=" + categoria + ", a\u00f1o_nacimiento=" + año_lanzamiento + ", consola=" + consola + '}';
     }
 
    

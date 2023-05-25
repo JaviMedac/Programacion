@@ -120,11 +120,11 @@ public class Eleccion extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
          if(jComboBox1.getSelectedIndex()==1){
-            VentanaJuego vp = new VentanaJuego();
+            VentanaJuego vp = new VentanaJuego("respuestas");
             vp.setVisible(true);
             this.setVisible(false);
         }else if(jComboBox1.getSelectedIndex()==2){
-            VentanaJuego vp = new VentanaJuego();
+            VentanaJuego vp = new VentanaJuego("videojuegos");
             vp.setVisible(true);
             this.setVisible(false);
         }
