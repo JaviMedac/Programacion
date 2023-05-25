@@ -52,11 +52,11 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                 + "\n4. Si no te la quieres jugar a seguir perdiendo puntos, puedes pasar a la siguiente pregunta, pero recuerda, puedes quedarte sin preguntas "
                 + "\n5. Si sacas menos de 20 puntos eres un puto pringao");
 
-        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 1 minuto para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
 
         while (resp == 1) {
             JOptionPane.showMessageDialog(null, "Eres tonto o que, entonces a qué has venido");
-            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 1 minuto para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         }
 
         try {
@@ -68,11 +68,11 @@ public class VentanaVideojuego extends javax.swing.JFrame {
             System.out.println("mierda");
 
         }
-        // this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 60;
+            int ti = 40;
 
             @Override
             public void run() {
@@ -81,6 +81,10 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                     ti--;
 
                 } else {
+                    int puntos = Integer.parseInt(jLabel1.getText());
+                    if(puntos > 40){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
                     System.exit(0);
                 }
             }
@@ -801,7 +805,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         preguntas.put("k. ¿Qué juego es de JRPG?", "JRPG");
         preguntas.put("l. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
         preguntas.put("m. ¿Qué juego es de la Wii?", "Wii");
-        preguntas.put("n ¿Qué juego va de matar demonios en primera persona con música de pastillero a toda polla?", "FPS");
+        preguntas.put("n ¿Qué juego va de matar demonios con música de pastillero a toda polla?", "FPS");
         preguntas.put("o. ¿Qué juego táctico de RiotGames está protagonizado por agentes?", "Shooter");
         preguntas.put("p. ¿Qué juego es de 2001?", "2001");
 

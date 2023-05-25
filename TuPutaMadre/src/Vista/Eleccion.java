@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -118,9 +120,7 @@ public class Eleccion extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
          if(jComboBox1.getSelectedIndex()==1){
-            VentanaDeportes vp = new VentanaDeportes("respuestas");
-            vp.setVisible(true);
-            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "La sección de deportes estará disponible en próximas actualizaciones");
         }else if(jComboBox1.getSelectedIndex()==2){
             VentanaVideojuego vp = new VentanaVideojuego("videojuegos");
             vp.setVisible(true);
