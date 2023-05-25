@@ -1,5 +1,13 @@
-package modelo;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
 
+/**
+ *
+ * @author usuario
+ */
 public class Articulo {
 
     private String nombre;
@@ -28,7 +36,7 @@ public class Articulo {
 
     @Override
     public String toString() {
-        return "Articulo{" + "nombre=" + nombre + ", unidades=" + unidades + '}';
+        return "Articulo: " + nombre + "/" + unidades;
     }
 
 }

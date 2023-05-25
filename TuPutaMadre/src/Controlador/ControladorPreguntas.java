@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Pregunta;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -25,7 +26,7 @@ public class ControladorPreguntas {
         String consulta = "SELECT * FROM respuestas";
         ResultSet rset = conexion.ejecutarSelect(consulta);
         while(rset.next()){
-            String id = rset.getString("id");
+            int id = parseInt(rset.getString("id"));
             String nacionalidad = rset.getString("nacionalidad");
             String deporte = rset.getString("deporte");
             String apodo = rset.getString("apodo");

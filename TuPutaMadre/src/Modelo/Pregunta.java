@@ -10,23 +10,23 @@ package Modelo;
  */
 public class Pregunta {
     
-    public String id;
+    public int id;
     public String nacionalidad;
     public String deporte;
     public String apodo;
 
-    public Pregunta(String id, String nacionalidad, String deporte, String apodo) {
+    public Pregunta(int id, String nacionalidad, String deporte, String apodo) {
         this.id = id;
         this.nacionalidad = nacionalidad;
         this.deporte = deporte;
         this.apodo = apodo;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
