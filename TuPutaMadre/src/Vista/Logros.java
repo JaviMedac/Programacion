@@ -39,7 +39,6 @@ public class Logros extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +52,11 @@ public class Logros extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 204, 51));
         jButton4.setForeground(new java.awt.Color(255, 0, 0));
         jButton4.setText("Logro 4 - BLOQUEADO");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 204, 51));
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
@@ -75,10 +79,6 @@ public class Logros extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LOGROS");
 
-        jButton6.setBackground(new java.awt.Color(255, 204, 51));
-        jButton6.setForeground(new java.awt.Color(255, 0, 0));
-        jButton6.setText("Logro 6 - BLOQUEADO");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -88,8 +88,7 @@ public class Logros extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -114,9 +113,7 @@ public class Logros extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(14, 14, 14)
                 .addComponent(jButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,6 +139,16 @@ public class Logros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, nombre + "\n" + descripcion);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (jButton1.getText().equalsIgnoreCase("Logro 4 - BLOQUEADO")) {
+            JOptionPane.showMessageDialog(null, "ESTE LOGRO ESTÁ BLOQUEADO");
+        } else {
+            this.nombre = "Espabila mongolo mierda";
+            this.descripcion = "Te has quedado sin preguntas";
+            JOptionPane.showMessageDialog(null, nombre + "\n" + descripcion);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +206,7 @@ public class Logros extends javax.swing.JFrame {
             jButton5.setText("Logro 5");
 
         }
-        if (nombreLogro.equalsIgnoreCase(jButton6.getText())) {
-            jButton6.setText("Logro 6");
-
-        }
+       
 
     }
 
@@ -212,7 +216,6 @@ public class Logros extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

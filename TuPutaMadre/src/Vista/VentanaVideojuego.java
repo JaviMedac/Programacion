@@ -91,12 +91,21 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
                     if (puntos > 40) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 4 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     if (puntos > 80) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 5 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     if (puntos > 100) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 6 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
                     if (resp == 1) {

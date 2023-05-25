@@ -75,6 +75,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         TimerTask task = new TimerTask() {
             int ti = 50;
             boolean finish = false;
+            boolean sinPreguntas = false;
 
             @Override
             public void run() {
@@ -83,6 +84,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
                     jLabel2.setText(String.valueOf(ti));
                     ti--;
                     if (preguntasDeportes.isEmpty()) {
+                        sinPreguntas = true;
                         ti = 0;
                     }
 
@@ -98,9 +100,21 @@ public class VentanaDeportes extends javax.swing.JFrame {
                     }
                     if (puntos > 80) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 2 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     if (puntos > 100) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 3 - BLOQUEADO");
+                        ventana.setVisible(true);
+                    }
+                    if(sinPreguntas){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 4 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
                     if (resp == 1) {
