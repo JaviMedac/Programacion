@@ -73,7 +73,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         llenarPreguntasDeportes(preguntasDeportes);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 10;
+            int ti = 50;
             boolean finish = false;
 
             @Override
@@ -92,6 +92,9 @@ public class VentanaDeportes extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
                     if (puntos > 40) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                        Logros ventana = new Logros();
+                        ventana.llenarLogros("Logro 1 - BLOQUEADO");
+                        ventana.setVisible(true);
                     }
                     if (puntos > 80) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
@@ -468,12 +471,18 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
-        if (!preguntasDeportes.isEmpty()) {
-            jLabel1.setText(preguntasDeportes.firstKey());
-            preguntasDeportes.remove(preguntasDeportes.firstKey());
+        if (preguntasDeportes.size() <= 1) {
+            if (!preguntasDeportes.isEmpty()) {
+                jLabel1.setText(preguntasDeportes.firstKey());
+                preguntasDeportes.remove(preguntasDeportes.firstKey());
+            } else {
+                JOptionPane.showMessageDialog(null, "Has perdio");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Has perdio");
+            preguntasDeportes.remove(preguntasDeportes.firstKey());
+            jLabel1.setText(preguntasDeportes.firstKey());
         }
+
 
     }//GEN-LAST:event_EnviarBotonActionPerformed
 

@@ -470,11 +470,16 @@ public class VentanaVideojuego extends javax.swing.JFrame {
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
-        if (!preguntasVideojuegos.isEmpty()) {
-            jLabel1.setText(preguntasVideojuegos.firstKey());
-            preguntasVideojuegos.remove(preguntasVideojuegos.firstKey());
+        if (preguntasVideojuegos.size() <= 1) {
+            if (!preguntasVideojuegos.isEmpty()) {
+                jLabel1.setText(preguntasVideojuegos.firstKey());
+                preguntasVideojuegos.remove(preguntasVideojuegos.firstKey());
+            } else {
+                JOptionPane.showMessageDialog(null, "Has perdio");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Has perdio");
+            preguntasVideojuegos.remove(preguntasVideojuegos.firstKey());
+            jLabel1.setText(preguntasVideojuegos.firstKey());
         }
     }//GEN-LAST:event_EnviarBotonActionPerformed
 
