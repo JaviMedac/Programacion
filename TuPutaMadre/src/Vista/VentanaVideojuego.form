@@ -204,6 +204,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dark Souls II"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B6ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B11">
               <Properties>
@@ -215,6 +218,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Super Mario Galaxy 2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B11ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B12">
               <Properties>
@@ -226,6 +232,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Doom Eternal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B12ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B2">
               <Properties>
@@ -251,6 +260,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kingdom Hearts II"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B7ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B13">
               <Properties>
@@ -262,6 +274,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="League of Legends"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B13ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B3">
               <Properties>
@@ -287,6 +302,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Candy Crush Saga"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B8ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B14">
               <Properties>
@@ -298,6 +316,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Final Fantasy VII"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B14ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B4">
               <Properties>
@@ -309,6 +330,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sekiro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B9">
               <Properties>
@@ -320,6 +344,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Uncharted 3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B9ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B15">
               <Properties>
@@ -331,6 +358,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Final Fantasy X"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B15ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B5">
               <Properties>
@@ -342,6 +372,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Assassins Creed II"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B5ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="B10">
               <Properties>
@@ -353,6 +386,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="The Last of Us "/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B10ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="EnviarBoton">
               <Properties>

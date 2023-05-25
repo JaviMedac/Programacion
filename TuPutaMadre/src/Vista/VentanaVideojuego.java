@@ -42,7 +42,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
     public VentanaVideojuego(String tabla) {
         initComponents();
         int dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
-        while(dificultad == 1){
+        while (dificultad == 1) {
             JOptionPane.showMessageDialog(null, "A llorar al parque, juégalo en dificil");
             dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         }
@@ -155,14 +155,29 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         B6.setBackground(new java.awt.Color(0, 204, 204));
         B6.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B6.setText("Dark Souls II");
+        B6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B6ActionPerformed(evt);
+            }
+        });
 
         B11.setBackground(new java.awt.Color(0, 204, 204));
         B11.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B11.setText("Super Mario Galaxy 2");
+        B11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B11ActionPerformed(evt);
+            }
+        });
 
         B12.setBackground(new java.awt.Color(0, 204, 204));
         B12.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B12.setText("Doom Eternal");
+        B12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B12ActionPerformed(evt);
+            }
+        });
 
         B2.setBackground(new java.awt.Color(0, 204, 204));
         B2.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
@@ -176,10 +191,20 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         B7.setBackground(new java.awt.Color(0, 204, 204));
         B7.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B7.setText("Kingdom Hearts II");
+        B7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B7ActionPerformed(evt);
+            }
+        });
 
         B13.setBackground(new java.awt.Color(0, 204, 204));
         B13.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B13.setText("League of Legends");
+        B13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B13ActionPerformed(evt);
+            }
+        });
 
         B3.setBackground(new java.awt.Color(0, 204, 204));
         B3.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
@@ -193,30 +218,65 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         B8.setBackground(new java.awt.Color(0, 204, 204));
         B8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B8.setText("Candy Crush Saga");
+        B8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B8ActionPerformed(evt);
+            }
+        });
 
         B14.setBackground(new java.awt.Color(0, 204, 204));
         B14.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B14.setText("Final Fantasy VII");
+        B14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B14ActionPerformed(evt);
+            }
+        });
 
         B4.setBackground(new java.awt.Color(0, 204, 204));
         B4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B4.setText("Sekiro");
+        B4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B4ActionPerformed(evt);
+            }
+        });
 
         B9.setBackground(new java.awt.Color(0, 204, 204));
         B9.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B9.setText("Uncharted 3");
+        B9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B9ActionPerformed(evt);
+            }
+        });
 
         B15.setBackground(new java.awt.Color(0, 204, 204));
         B15.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B15.setText("Final Fantasy X");
+        B15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B15ActionPerformed(evt);
+            }
+        });
 
         B5.setBackground(new java.awt.Color(0, 204, 204));
         B5.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B5.setText("Assassins Creed II");
+        B5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B5ActionPerformed(evt);
+            }
+        });
 
         B10.setBackground(new java.awt.Color(0, 204, 204));
         B10.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         B10.setText("The Last of Us ");
+        B10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B10ActionPerformed(evt);
+            }
+        });
 
         EnviarBoton.setText("Pasar de Pregunta");
         EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -413,6 +473,282 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_B3ActionPerformed
 
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(2).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(2).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(2).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B4);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B4);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B4ActionPerformed
+
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(7).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(7).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(7).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B5);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B5);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B5ActionPerformed
+
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(4).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(4).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(4).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B6);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B6);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B6ActionPerformed
+
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(5).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(5).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(5).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B7);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B7);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B7ActionPerformed
+
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(6).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(6).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(6).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B8);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B8);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B8ActionPerformed
+
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
+       try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(8).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(8).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(8).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B9);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B9);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B9ActionPerformed
+
+    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(9).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(9).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(9).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B10);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B10);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B10ActionPerformed
+
+    private void B11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B11ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(10).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(10).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(10).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B11);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B11);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B11ActionPerformed
+
+    private void B12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B12ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(11).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(11).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(11).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B12);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B12);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B12ActionPerformed
+
+    private void B13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B13ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(1).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(1).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(1).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B13);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B13);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B13ActionPerformed
+
+    private void B14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B14ActionPerformed
+        try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(13).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(13).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(13).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B14);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B14);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B14ActionPerformed
+
+    private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
+       try {
+            ArrayList<PreguntasVideojuegos> listaRespuestas = this.controlar.ObtenerTodosDatosVideojuegos();
+            String respuesta = preguntasVideojuegos.get(preguntasVideojuegos.firstKey());
+            if (listaRespuestas.get(14).getCategoria().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(14).getConsola().equalsIgnoreCase(respuesta)
+                    || String.valueOf(listaRespuestas.get(14).getAño_nacimiento()).equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B15);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B15);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -464,11 +800,10 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         preguntas.put("j. ¿Qué juego es de 1997?", "1997");
         preguntas.put("k. ¿Qué juego es de JRPG?", "JRPG");
         preguntas.put("l. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        preguntas.put("m. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        preguntas.put("n ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        preguntas.put("o. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        preguntas.put("p. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        
+        preguntas.put("m. ¿Qué juego es de la Wii?", "Wii");
+        preguntas.put("n ¿Qué juego va de matar demonios en primera persona con música de pastillero a toda polla?", "FPS");
+        preguntas.put("o. ¿Qué juego táctico de RiotGames está protagonizado por agentes?", "Shooter");
+        preguntas.put("p. ¿Qué juego es de 2001?", "2001");
 
     }
 
