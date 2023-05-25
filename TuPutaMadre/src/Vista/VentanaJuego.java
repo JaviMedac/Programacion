@@ -28,12 +28,13 @@ public class VentanaJuego extends javax.swing.JFrame {
      */
     ConexionMySQL conexion = new ConexionMySQL();
     ControladorPreguntas controlar = new ControladorPreguntas(conexion);
-    TreeMap<String, String> preguntas = new TreeMap();
+    TreeMap<String, String> preguntasDeportes = new TreeMap();
+    TreeMap<String, String> preguntasVideojuegos = new TreeMap();
 
     public VentanaJuego() {
         initComponents();
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        llenarPreguntas(preguntas);
+        llenarPreguntasVideojuegos(preguntasDeportes);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             int ti = 270;
@@ -51,8 +52,8 @@ public class VentanaJuego extends javax.swing.JFrame {
         };
         timer.schedule(task, 10, 1000);
         //jLabel1.setText(preguntas.firstKey());//
-        jLabel1.setText(preguntas.firstKey());
-        preguntas.remove(preguntas.firstKey());
+        jLabel1.setText(preguntasDeportes.firstKey());
+        preguntasDeportes.remove(preguntasDeportes.firstKey());
 
     }
 
@@ -84,7 +85,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         B15 = new javax.swing.JButton();
         B5 = new javax.swing.JButton();
         B10 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        EnviarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,10 +167,10 @@ public class VentanaJuego extends javax.swing.JFrame {
         B10.setBackground(new java.awt.Color(0, 204, 204));
         B10.setText("jButton2");
 
-        jButton17.setText("Enviar Respuesta");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        EnviarBoton.setText("Enviar Respuesta");
+        EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                EnviarBotonActionPerformed(evt);
             }
         });
 
@@ -207,7 +208,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                             .addComponent(B10, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -248,7 +249,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(B11, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -285,12 +286,12 @@ public class VentanaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
-       deshabilitarBoton(B2);
+        deshabilitarBoton(B2);
     }//GEN-LAST:event_B2ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_EnviarBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,7 +329,18 @@ public class VentanaJuego extends javax.swing.JFrame {
         });
     }
 
-    public void llenarPreguntas(TreeMap preguntas) {
+    public void llenarPreguntasDeportes(TreeMap preguntas) {
+        preguntas.put("¿Quién es de nacionalidad francesa?", "Francia");
+        preguntas.put("¿Quién tiene de apodo el bicho?", "Bicho");
+        preguntas.put("¿Quien de todos practica baloncesto?", "Baloncesto");
+        preguntas.put("¿Quién es de nacionalidad española?", "España");
+        preguntas.put("¿Quién es de nacionalidad italiana?", "Italia");
+        preguntas.put("¿Quién se apoda el chef", "Chef");
+        preguntas.put("¿Quién de todos practica tenis?", "Tenis");
+
+    }
+
+    public void llenarPreguntasVideojuegos(TreeMap preguntas) {
         preguntas.put("¿Quién es de nacionalidad francesa?", "Francia");
         preguntas.put("¿Quién tiene de apodo el bicho?", "Bicho");
         preguntas.put("¿Quien de todos practica baloncesto?", "Baloncesto");
@@ -366,6 +378,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         B15.setEnabled(true);
 
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B1;
     private javax.swing.JButton B10;
@@ -382,7 +395,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     private javax.swing.JButton B7;
     private javax.swing.JButton B8;
     private javax.swing.JButton B9;
-    private javax.swing.JButton jButton17;
+    private javax.swing.JButton EnviarBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

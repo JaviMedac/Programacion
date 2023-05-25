@@ -4,7 +4,8 @@
  */
 package Controlador;
 
-import Modelo.Pregunta;
+import Modelo.PreguntasDeportes;
+import Modelo.PreguntasVideojuegos;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.sql.*;
@@ -21,8 +22,8 @@ public class ControladorPreguntas {
         this.conexion = conexion;
     }
     
-    public ArrayList <Pregunta> ObtenerTodasPreguntas() throws SQLException{
-        ArrayList <Pregunta> lista = new ArrayList <>();
+    public ArrayList <PreguntasDeportes> ObtenerTodasPreguntas() throws SQLException{
+        ArrayList <PreguntasDeportes> lista = new ArrayList <>();
         String consulta = "SELECT * FROM respuestas";
         ResultSet rset = conexion.ejecutarSelect(consulta);
         while(rset.next()){
@@ -30,7 +31,21 @@ public class ControladorPreguntas {
             String nacionalidad = rset.getString("nacionalidad");
             String deporte = rset.getString("deporte");
             String apodo = rset.getString("apodo");
-            Pregunta pregunta = new Pregunta(id,nacionalidad,deporte,apodo);
+            PreguntasDeportes pregunta = new PreguntasDeportes(id,nacionalidad,deporte,apodo);
+            lista.add(pregunta);
+        }
+        return lista;
+    }
+    public ArrayList <PreguntasVideojuegos> ObtenerTodasVideojuegos() throws SQLException{
+        ArrayList <PreguntasVideojuegos> lista = new ArrayList <>();
+        String consulta = "SELECT * FROM videojuegos";
+        ResultSet rset = conexion.ejecutarSelect(consulta);
+        while(rset.next()){
+            int id = parseInt(rset.getString("id"));
+            String categoria = rset.getString("categoria");
+            int año_lanzamiento= parseInt(rset.getString("año_lanzamiento"));
+            String consola = rset.getString("consola");
+            PreguntasVideojuegos pregunta = new PreguntasVideojuegos(id,categoria,año_lanzamiento,consola);
             lista.add(pregunta);
         }
         return lista;

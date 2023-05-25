@@ -8,14 +8,14 @@ package Modelo;
  *
  * @author usuario
  */
-public class Pregunta {
+public class PreguntasDeportes {
     
     public int id;
     public String nacionalidad;
     public String deporte;
     public String apodo;
 
-    public Pregunta(int id, String nacionalidad, String deporte, String apodo) {
+    public PreguntasDeportes(int id, String nacionalidad, String deporte, String apodo) {
         this.id = id;
         this.nacionalidad = nacionalidad;
         this.deporte = deporte;
