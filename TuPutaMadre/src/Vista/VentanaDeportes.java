@@ -81,8 +81,28 @@ public class VentanaDeportes extends javax.swing.JFrame {
                     jLabel2.setText(String.valueOf(ti));
                     ti--;
 
-                } else {
-                    System.exit(0);
+                } else if (ti == 0) {
+                    jLabel2.setText(String.valueOf(ti));
+                    JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
+                    if (puntos > 40) {
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    if(puntos > 80){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    if(puntos > 100){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+                    if (resp == 1) {
+                        ti = Integer.MAX_VALUE;
+                        dispose();
+                    } else {
+                        Eleccion ventana = new Eleccion();
+                        ventana.setVisible(true);
+                        ti = Integer.MAX_VALUE;
+                        dispose();
+                    }
                 }
             }
         };
@@ -145,7 +165,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
         B1.setBackground(new java.awt.Color(0, 204, 204));
         B1.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B1.setText("jButton1");
+        B1.setText("Kylian Mbappe");
         B1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B1ActionPerformed(evt);
@@ -154,19 +174,34 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
         B6.setBackground(new java.awt.Color(0, 204, 204));
         B6.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B6.setText("jButton2");
+        B6.setText("Kobe Bryant");
+        B6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B6ActionPerformed(evt);
+            }
+        });
 
         B11.setBackground(new java.awt.Color(0, 204, 204));
         B11.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B11.setText("jButton2");
+        B11.setText("Pele");
+        B11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B11ActionPerformed(evt);
+            }
+        });
 
         B12.setBackground(new java.awt.Color(0, 204, 204));
         B12.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B12.setText("jButton2");
+        B12.setText("Michael Jordan");
+        B12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B12ActionPerformed(evt);
+            }
+        });
 
         B2.setBackground(new java.awt.Color(0, 204, 204));
         B2.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B2.setText("jButton1");
+        B2.setText("Stephen Curry");
         B2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B2ActionPerformed(evt);
@@ -175,45 +210,95 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
         B7.setBackground(new java.awt.Color(0, 204, 204));
         B7.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B7.setText("jButton2");
+        B7.setText("Novak Djokovic");
+        B7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B7ActionPerformed(evt);
+            }
+        });
 
         B13.setBackground(new java.awt.Color(0, 204, 204));
         B13.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B13.setText("jButton2");
+        B13.setText("Ryan Garcia");
+        B13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B13ActionPerformed(evt);
+            }
+        });
 
         B3.setBackground(new java.awt.Color(0, 204, 204));
         B3.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B3.setText("jButton1");
+        B3.setText("Carles Puyol");
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
 
         B8.setBackground(new java.awt.Color(0, 204, 204));
         B8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B8.setText("jButton2");
+        B8.setText("Michael Phelps");
+        B8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B8ActionPerformed(evt);
+            }
+        });
 
         B14.setBackground(new java.awt.Color(0, 204, 204));
         B14.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B14.setText("jButton2");
+        B14.setText("Usaint Bolt");
+        B14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B14ActionPerformed(evt);
+            }
+        });
 
         B4.setBackground(new java.awt.Color(0, 204, 204));
         B4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B4.setText("jButton1");
+        B4.setText("Cristiano Ronaldo");
+        B4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B4ActionPerformed(evt);
+            }
+        });
 
         B9.setBackground(new java.awt.Color(0, 204, 204));
         B9.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B9.setText("jButton2");
+        B9.setText("Alexa Putellas");
+        B9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B9ActionPerformed(evt);
+            }
+        });
 
         B15.setBackground(new java.awt.Color(0, 204, 204));
         B15.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B15.setText("jButton2");
+        B15.setText("Memphis Depay");
+        B15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B15ActionPerformed(evt);
+            }
+        });
 
         B5.setBackground(new java.awt.Color(0, 204, 204));
         B5.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B5.setText("jButton1");
+        B5.setText("Rafa Nadal");
+        B5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B5ActionPerformed(evt);
+            }
+        });
 
         B10.setBackground(new java.awt.Color(0, 204, 204));
         B10.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        B10.setText("jButton2");
+        B10.setText("Bryan Harper");
+        B10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B10ActionPerformed(evt);
+            }
+        });
 
-        EnviarBoton.setText("Enviar Respuesta");
+        EnviarBoton.setText("Cambiar Pregunta");
         EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarBotonActionPerformed(evt);
@@ -332,12 +417,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
-         try {
+        try {
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
-            if (listaRespuestas.get(3).getNacionalidad().equalsIgnoreCase(respuesta)
-                    || listaRespuestas.get(3).getDeporte().equalsIgnoreCase(respuesta)
-                    || listaRespuestas.get(3).getApodo().equalsIgnoreCase(respuesta)) {
+            if (listaRespuestas.get(0).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(0).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(0).getApodo().equalsIgnoreCase(respuesta)) {
                 deshabilitarBoton(B1);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
@@ -355,12 +440,332 @@ public class VentanaDeportes extends javax.swing.JFrame {
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
-        deshabilitarBoton(B2);
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(1).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(1).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(1).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B2);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B2);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
     }//GEN-LAST:event_B2ActionPerformed
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
+        preguntasDeportes.remove(preguntasDeportes.firstKey());
+        jLabel1.setText(preguntasDeportes.firstKey());
     }//GEN-LAST:event_EnviarBotonActionPerformed
+
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(2).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(2).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(2).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B3);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B3);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B3ActionPerformed
+
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(3).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(3).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(3).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B4);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B4);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B4ActionPerformed
+
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(4).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(4).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(4).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B5);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B5);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B5ActionPerformed
+
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(5).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(5).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(5).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B6);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B6);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B6ActionPerformed
+
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(6).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(6).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(6).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B7);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B7);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B7ActionPerformed
+
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(7).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(7).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(7).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B8);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B8);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B8ActionPerformed
+
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(8).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(8).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(8).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B9);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B9);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B9ActionPerformed
+
+    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(9).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(9).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(9).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B10);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B10);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B10ActionPerformed
+
+    private void B11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B11ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(10).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(10).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(10).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B11);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B11);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B11ActionPerformed
+
+    private void B12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B12ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(11).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(11).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(11).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B12);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B12);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B12ActionPerformed
+
+    private void B13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B13ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(12).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(12).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(12).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B13);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B13);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B13ActionPerformed
+
+    private void B14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B14ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(13).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(13).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(13).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B14);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B14);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B14ActionPerformed
+
+    private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
+        try {
+            ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
+            String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
+            if (listaRespuestas.get(14).getNacionalidad().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(14).getDeporte().equalsIgnoreCase(respuesta)
+                    || listaRespuestas.get(14).getApodo().equalsIgnoreCase(respuesta)) {
+                deshabilitarBoton(B15);
+                puntos = puntos + 5;
+                jLabel3.setText(String.valueOf(puntos));
+            } else {
+                deshabilitarBoton(B15);
+                puntos = puntos - 3;
+                jLabel3.setText(String.valueOf(puntos));
+
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println("caca");
+
+        }
+    }//GEN-LAST:event_B15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,22 +806,22 @@ public class VentanaDeportes extends javax.swing.JFrame {
     }
 
     public void llenarPreguntasDeportes(TreeMap preguntas) {
-        preguntas.put("a. ¿Qué juego es Indie?", "Indie");
-        preguntas.put("b. ¿Qué juego es de 2009?", "2009");
-        preguntas.put("c. ¿Qué juego es protagonizado por un ladrón?", "Aventura");
-        preguntas.put("d. ¿Qué juego es PS3?", "PS3");
-        preguntas.put("e. ¿Qué juego es de Movil?", "Movil");
-        preguntas.put("f. ¿En qué juego sale el Kiko?", "Enningunopicha");
-        preguntas.put("g. ¿Qué juego es de Switch?", "Switch");
-        preguntas.put("h. ¿Qué juego es de la Super Nintendo?", "Super Nintendo");
-        preguntas.put("i. ¿A qué juego pertenece al conocido villano Sephiroth?", "1997");
-        preguntas.put("j. ¿Qué juego es de 1997?", "1997");
-        preguntas.put("k. ¿Qué juego es de JRPG?", "JRPG");
-        preguntas.put("l. ¿Qué juego es protagonizado por un fontanero gordo y bigotuo?", "Plataforma");
-        preguntas.put("m. ¿Qué juego es de la Wii?", "Wii");
-        preguntas.put("n ¿Qué juego va de matar demonios con música de pastillero a toda polla?", "FPS");
-        preguntas.put("o. ¿Qué juego táctico de RiotGames está protagonizado por agentes?", "Shooter");
-        preguntas.put("p. ¿Qué juego es de 2001?", "2001");
+        preguntas.put("a. ¿Quienes practican Boxeo?", "Boxeo");
+        preguntas.put("b. ¿Quién es conocido como El Tiburon?", "Tiburon");
+        preguntas.put("c. ¿Quienes practican Baloncesto?", "Baloncesto");
+        preguntas.put("d. ¿Quienes practican Tenis?", "Tenis");
+        preguntas.put("e. ¿Quién es conocido como La Tortuga?", "Tortuga");
+        preguntas.put("f. ¿Quién es conocido como La Mamba Negra?", "Mamba Negra");
+        preguntas.put("g. ¿Quién murió en un accidente aéreo?", "Mamba Negra");
+        preguntas.put("h. ¿Quién ha jugado en el Real Madrid?", "Bicho");
+        preguntas.put("i. ¿Quién es conocido por tener un leon tatuado en la espalda?", "Memphis");
+        preguntas.put("j. ¿Quién es conocido como El Bicho?", "Bicho");
+        preguntas.put("k. ¿Quién es de Estados Unidos?", "Estados Unidos");
+        preguntas.put("l. ¿Quién practica Natacion?", "Natacion");
+        preguntas.put("m. ¿Qué jugador practica Baseball?", "Harper");
+        preguntas.put("n ¿Quien es Español?", "España");
+        preguntas.put("o. ¿Quién es el más veloz de todos?", "Bolt");
+        preguntas.put("p. ¿Quién es conocido como La Bala de Baltimore?", "Natacion");
 
     }
 

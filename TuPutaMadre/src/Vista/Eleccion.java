@@ -119,14 +119,16 @@ public class Eleccion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-         if(jComboBox1.getSelectedIndex()==1){
-            JOptionPane.showMessageDialog(null, "La sección de deportes estará disponible en próximas actualizaciones");
-        }else if(jComboBox1.getSelectedIndex()==2){
+        if (jComboBox1.getSelectedIndex() == 1) {
+            VentanaDeportes vp = new VentanaDeportes("respuestas");
+            vp.setVisible(true);
+            this.setVisible(false);
+        } else if (jComboBox1.getSelectedIndex() == 2) {
             VentanaVideojuego vp = new VentanaVideojuego("videojuegos");
             vp.setVisible(true);
             this.setVisible(false);
         }
-       
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**

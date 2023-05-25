@@ -30,7 +30,7 @@ public class ControladorPreguntas {
         while (rset.next()) {
             int id = parseInt(rset.getString("id"));
             String nacionalidad = rset.getString("nacionalidad");
-            String deporte = rset.getString("deporte");
+            String deporte = rset.getString("tipo_deporte");
             String apodo = rset.getString("apodo");
             PreguntasDeportes pregunta = new PreguntasDeportes(id, nacionalidad, deporte, apodo);
             lista.add(pregunta);

@@ -72,7 +72,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
         llenarPreguntasVideojuegos(preguntasVideojuegos);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 3;
+            int ti = 40;
 
             @Override
             public void run() {
@@ -82,12 +82,27 @@ public class VentanaVideojuego extends javax.swing.JFrame {
 
                 } else if (ti == 0) {
                     jLabel2.setText(String.valueOf(ti));
+                    JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
+                    if (puntos > 40) {
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    if(puntos > 80){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    if(puntos > 100){
+                        JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
+                    }
+                    int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+                    if (resp == 1) {
+                        ti = Integer.MAX_VALUE;
+                        dispose();
+                    } else {
+                        Eleccion ventana = new Eleccion();
+                        ventana.setVisible(true);
+                        ti = Integer.MAX_VALUE;
+                        dispose();
+                    }
 
-                    int resp = JOptionPane.showConfirmDialog(null, "Has conseguido más de 40 puntos, has obtenido un logro....", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
-                    Eleccion ventana = new Eleccion();
-                    ventana.setVisible(true);
-                    ti = Integer.MAX_VALUE;
-                    dispose();                 
                 }
             }
 
@@ -420,8 +435,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
 
             }
         } catch (SQLException e) {
-            e.getMessage();
-            System.out.println("caca");
+            System.out.println(e.getMessage());
 
         }
 
