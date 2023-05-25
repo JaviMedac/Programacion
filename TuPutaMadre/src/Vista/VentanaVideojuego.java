@@ -303,7 +303,7 @@ public class VentanaVideojuego extends javax.swing.JFrame {
             }
         });
 
-        EnviarBoton.setText("Pasar de Pregunta");
+        EnviarBoton.setText("Cambiar Pagina");
         EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarBotonActionPerformed(evt);
