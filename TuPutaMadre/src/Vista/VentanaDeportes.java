@@ -73,34 +73,38 @@ public class VentanaDeportes extends javax.swing.JFrame {
         llenarPreguntasDeportes(preguntasDeportes);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 40;
+            int ti = 10;
+            boolean finish = false;
 
             @Override
             public void run() {
                 if (ti != 0) {
+
                     jLabel2.setText(String.valueOf(ti));
                     ti--;
+                    if (preguntasDeportes.isEmpty()) {
+                        ti = 0;
+                    }
 
-                } else if (ti == 0) {
+                } else if (!finish) {
+                    finish = true;
                     jLabel2.setText(String.valueOf(ti));
                     JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
                     if (puntos > 40) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
                     }
-                    if(puntos > 80){
+                    if (puntos > 80) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
                     }
-                    if(puntos > 100){
+                    if (puntos > 100) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
                     }
                     int resp = JOptionPane.showConfirmDialog(null, "¿Quieres volver al menú principal?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
                     if (resp == 1) {
-                        ti = Integer.MAX_VALUE;
                         dispose();
                     } else {
                         Eleccion ventana = new Eleccion();
                         ventana.setVisible(true);
-                        ti = Integer.MAX_VALUE;
                         dispose();
                     }
                 }
@@ -464,8 +468,13 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
-        preguntasDeportes.remove(preguntasDeportes.firstKey());
-        jLabel1.setText(preguntasDeportes.firstKey());
+        if (!preguntasDeportes.isEmpty()) {
+            jLabel1.setText(preguntasDeportes.firstKey());
+            preguntasDeportes.remove(preguntasDeportes.firstKey());
+        } else {
+            JOptionPane.showMessageDialog(null, "Has perdio");
+        }
+
     }//GEN-LAST:event_EnviarBotonActionPerformed
 
     private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
