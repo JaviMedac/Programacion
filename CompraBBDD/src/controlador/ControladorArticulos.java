@@ -1,20 +1,36 @@
-package controlador;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Controlador;
 
-import java.util.ArrayList;
-import modelo.Articulo;
+import Modelo.Articulo;
 import java.sql.*;
+import java.util.ArrayList;
 
+/**
+ *
+ * @author usuario
+ */
 public class ControladorArticulos {
 
-    private ConexionMYSQL conexion;
+    private ConexionMySQL conexion;
 
-    public ControladorArticulos(ConexionMYSQL conexion) {
+    public ControladorArticulos(ConexionMySQL conexion) {
         this.conexion = conexion;
     }
 
-    public ArrayList<Articulo> ObtenerTodosArticulos() throws SQLException {
-        ArrayList<Articulo> lista = new ArrayList();
-        String consulta = "SELECT * FROM compra";
+    public ConexionMySQL getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(ConexionMySQL conexion) {
+        this.conexion = conexion;
+    }
+
+    public ArrayList<Articulo> obtenerTodosArticulos() throws SQLException {
+        ArrayList<Articulo> lista = new ArrayList<>();
+        String consulta = "Select * from compra";
         ResultSet rset = conexion.ejecutarSelect(consulta);
         while (rset.next()) {
             String nombre = rset.getString("nombre");

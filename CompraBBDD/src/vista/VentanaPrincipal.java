@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vista;
+package Vista;
 
-import controlador.ConexionMYSQL;
-import controlador.ControladorArticulos;
-import java.sql.*;
+import Controlador.ConexionMySQL;
+import Controlador.ControladorArticulos;
+import Modelo.Articulo;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Articulo;
 
 /**
  *
@@ -18,20 +18,21 @@ import modelo.Articulo;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    private ConexionMySQL control;
+    private ControladorArticulos controlArti;
+
     /**
      * Creates new form VentanaPrincipal
      */
-    private ConexionMYSQL conexion;
-
     public VentanaPrincipal() {
         initComponents();
-        conexion = new ConexionMYSQL("root", "", "compra");
-        jButton2.setEnabled(false);
+        control = new ConexionMySQL("root", "", "compras");
+        controlArti = new ControladorArticulos(control);
         jButton3.setEnabled(false);
+        jButton2.setEnabled(false);
         jButton4.setEnabled(false);
         jButton5.setEnabled(false);
         jButton6.setEnabled(false);
-
     }
 
     /**
@@ -42,7 +43,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -51,9 +54,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jButton1.setText("Conectar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +65,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Actualizar Lista");
+        jButton2.setText("Lista");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -78,25 +81,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
                 {null, null}
             },
             new String [] {
@@ -113,167 +97,165 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton4.setText("Insertar");
+        jButton4.setText("INSERT");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Modificar");
+        jButton5.setText("UPDATE");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Delete");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        jButton6.setText("DELETE");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "compra", "peliculas" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jButton5)
+                                .addGap(41, 41, 41))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 33;
+        gridBagConstraints.ipady = 112;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         try {
-            conexion.conectar();
-        } catch (SQLException sql) {
-            sql.printStackTrace();
-        } catch (ClassNotFoundException sql) {
-            sql.printStackTrace();
+            control.conectar();
+            JOptionPane.showMessageDialog(this, "Se ha conectado a la BASE de DATOS");
+            jButton2.setEnabled(true);
+            jButton1.setEnabled(false);
+            jButton4.setEnabled(true);
+            jButton5.setEnabled(true);
+            jButton6.setEnabled(true);
+            jButton3.setEnabled(true);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, "Se ha desconectado de la Base de Datos", "ERROR", JOptionPane.WARNING_MESSAGE);
         }
-        String mensaje = "Te has conectado a la base de datos";
-        String titulo = "Notificación";
-        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
-        jButton2.setEnabled(true);
-        jButton3.setEnabled(true);
-        jButton4.setEnabled(true);
-        jButton5.setEnabled(true);
-        jButton6.setEnabled(true);
+        System.out.println("Te has conectado");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
         try {
-            conexion.desconectar();
-        } catch (SQLException sql) {
-            sql.printStackTrace();
+            control.desconectar();
+            JOptionPane.showMessageDialog(this, "Se ha desconectado de la Base de Datos");
+            jButton2.setEnabled(false);
+            jButton1.setEnabled(true);
+            jButton4.setEnabled(false);
+            jButton5.setEnabled(false);
+            jButton6.setEnabled(false);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
         }
-        jButton2.setEnabled(false);
-        jButton3.setEnabled(false);
-        jButton4.setEnabled(false);
-        jButton5.setEnabled(false);
-        jButton6.setEnabled(false);
-        String mensaje = "Te has desconectado a la base de datos";
-        String titulo = "Notificación";
-        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("Te has desconectado");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ControladorArticulos controladora = new ControladorArticulos(conexion);
+        // TODO add your handling code here:
         try {
-            ArrayList<Articulo> lista = controladora.ObtenerTodosArticulos();
+            ArrayList<Articulo> lista = controlArti.obtenerTodosArticulos();
             DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-            int fila = 0, columna = 0;
+            System.out.println(lista.toString());
+            int fila = 0, colu = 0;
             for (Articulo articulo : lista) {
-                modelo.setValueAt(articulo.getNombre(), fila, columna);
-                modelo.setValueAt(articulo.getUnidades(), fila, columna + 1);
+                modelo.setValueAt(articulo.getNombre(), fila, colu);
+                modelo.setValueAt(articulo.getUnidades(), fila, colu + 1);
+                modelo.setRowCount(modelo.getRowCount() + 1);
                 fila++;
-                columna = 0;
+                colu = 0;
             }
-        } catch (SQLException sql) {
-            sql.printStackTrace();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
         try {
-            String valor1 = JOptionPane.showInputDialog("Introduce el nombre del producto");
-            int valor2 = Integer.parseInt(JOptionPane.showInputDialog("Introduce el número de " + valor1 + " que quieres añadir"));
-            String consulta = "INSERT INTO compra VALUES(" + valor1 + "," + valor2 + ")";
-            conexion.ejecutarInsertDeleteUpdate(consulta);
-        } catch (SQLException sql) {
-            sql.printStackTrace();
+            String nombre = JOptionPane.showInputDialog("¿Que quieres  añadir?");
+
+            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas unidades quieres añadir?"));
+            while (cantidad < 0 && cantidad > 99999999) {
+                cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas unidades quieres añadir? RECUERDA ELEGIR UN NUMERO"));
+            }
+            String consulta = "INSERT INTO compra(nombre,unidades)values('" + nombre + "'," + cantidad + ")";
+            control.ejecutarInsertDeleteUpdate(consulta);
+            JOptionPane.showMessageDialog(this, "Has insertado " + nombre + " con " + cantidad + " unidades");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String art = JOptionPane.showInputDialog("¿Que articulo quieres modificar?");
         try {
-            String valor1 = JOptionPane.showInputDialog("Introduce el nombre del producto que quieres modificar");
-            int valor2 = Integer.parseInt(JOptionPane.showInputDialog("Introduce el número de " + valor1 + " nuevo que quieres establecer "));
-            String update = "UPDATE compra SET Unidades = '" + valor2 + "'WHERE Nombre = '" + valor1 + "';";
-            conexion.ejecutarInsertDeleteUpdate(update);
-        } catch (SQLException sql) {
-            sql.printStackTrace();
+
+            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas unidades quieres añadir/quitar?"));
+            while (cantidad < 0 && cantidad > 99999999) {
+                cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas unidades quieres añadir/quitar? RECUERDA ELEGIR UN NUMERO"));
+            }
+            String consulta = "UPDATE compra set unidades=" + cantidad + "where nombre='" + art + "'";
+            control.ejecutarInsertDeleteUpdate(consulta);
+            JOptionPane.showMessageDialog(this, "Has modificado " + art + " con " + cantidad + " unidades");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        try {
-            String valor1 = JOptionPane.showInputDialog("Introduce el nombre del producto que quieres eliminar");
-            String consulta = "DELETE FROM compra WHERE Nombre = '" + valor1 + "';";
-            conexion.ejecutarInsertDeleteUpdate(consulta);
-        } catch (SQLException sql) {
-            sql.printStackTrace();
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +299,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
