@@ -94,6 +94,9 @@ public class VentanaVideojuego extends javax.swing.JFrame {
                         ti = 0;
                         sinPreguntas = true;
                     }
+                    if(ti == 10){
+                        jLabel2.setForeground(Color.red);
+                    }
 
                 } else if (!finish) {
                     finish = true;

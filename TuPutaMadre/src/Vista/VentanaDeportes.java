@@ -95,8 +95,11 @@ public class VentanaDeportes extends javax.swing.JFrame {
                         sinPreguntas = true;
                         ti = 0;
                     }
-
-                } else if (!finish) {
+                    if(ti == 9){
+                        jLabel2.setForeground(Color.red);
+                    }
+                }
+                else if (!finish) {
                     finish = true;
                     jLabel2.setText(String.valueOf(ti));
                     JOptionPane.showMessageDialog(null, "Tu puntuación ha sido de : " + jLabel3.getText());
