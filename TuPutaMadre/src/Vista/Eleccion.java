@@ -17,6 +17,7 @@ public class Eleccion extends javax.swing.JFrame {
      */
     public Eleccion() {
         initComponents();
+     
     }
 
     /**

@@ -53,7 +53,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Franklin Gothic Heavy" size="36" style="0"/>
+              <Font name="Noto Mono" size="36" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Contador"/>
           </Properties>
@@ -85,50 +85,45 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="B11" max="32767" attributes="0"/>
-                                          <Component id="B1" max="32767" attributes="0"/>
-                                          <Component id="B6" min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="B12" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B7" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="B13" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B3" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B8" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="B14" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B4" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B9" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="B15" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B5" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="B10" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Component id="EnviarBoton" min="-2" pref="167" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="EnviarBoton" alignment="1" min="-2" pref="191" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="B11" max="32767" attributes="0"/>
+                                      <Component id="B1" max="32767" attributes="0"/>
+                                      <Component id="B6" min="-2" pref="192" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="B12" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B7" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="B13" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B8" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="B14" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B9" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="B15" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="B10" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -402,6 +397,15 @@
             </Component>
             <Component class="javax.swing.JButton" name="EnviarBoton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cambiar Pregunta"/>
               </Properties>
               <Events>
@@ -411,7 +415,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="48" style="0"/>
+                  <Font name="Tahoma" size="48" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PUNTUACI&#xd3;N"/>
               </Properties>
@@ -421,7 +425,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="36" style="0"/>
+              <Font name="Miriam Libre" size="36" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pregunta"/>
           </Properties>

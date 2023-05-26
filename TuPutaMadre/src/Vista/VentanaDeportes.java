@@ -107,7 +107,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
                         blocked1 = "Logro 1 - BLOQUEADO";
                     }
-                    if (puntos > 80) {
+                    if (puntos > 60) {
                         JOptionPane.showMessageDialog(null, "Enhorabuena, has conseguido un logro");
                         blocked2 = "Logro 2 - BLOQUEADO";
                     }
@@ -194,7 +194,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         jPanel1.add(jLabel2, gridBagConstraints);
 
         jPanel3.setBackground(new java.awt.Color(51, 204, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         B1.setBackground(new java.awt.Color(0, 204, 204));
         B1.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
