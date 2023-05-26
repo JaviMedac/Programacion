@@ -8,6 +8,7 @@ import Controlador.ConexionMySQL;
 import Controlador.ControladorPreguntas;
 import Modelo.PreguntasDeportes;
 import Modelo.PreguntasVideojuegos;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,6 +43,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     public VentanaDeportes(String tabla) {
         initComponents();
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
         int dificultad = JOptionPane.showConfirmDialog(null, "¿Quieres jugar en modo dificil?", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         while (dificultad == 1) {
             JOptionPane.showMessageDialog(null, "A llorar al parque, juégalo en dificil");
@@ -54,11 +57,11 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 + "\n5. Si sacas menos de 20 puntos eres un puto pringao "
                 + "\n6. Las partidas cuentan con logros dinámicos, con un total de 5, intenta conseguirlos todos en una partida. Una vez que reinicies, se reiniciaran los logros");
 
-        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+        int resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? Tendrás 90 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
 
         while (resp == 1) {
             JOptionPane.showMessageDialog(null, "Eres tonto o que, entonces a qué has venido");
-            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 40 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
+            resp = JOptionPane.showConfirmDialog(null, "¿Estás listo para empezar? tendrás 90 segundos para responder todas las preguntas posibles", "Mensaje de comprobación", JOptionPane.YES_NO_OPTION);
         }
 
         try {
@@ -74,7 +77,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         llenarPreguntasDeportes(preguntasDeportes);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
-            int ti = 50;
+            int ti = 90;
             boolean finish = false;
             boolean sinPreguntas = false;
             String blocked1 = "";
@@ -125,7 +128,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
                         dispose();
                     } else {
                         Eleccion ventana2 = new Eleccion();
-                        ventana.setVisible(true);
+                        ventana2.setVisible(true);
                         dispose();
                     }
                 }
@@ -166,8 +169,10 @@ public class VentanaDeportes extends javax.swing.JFrame {
         B5 = new javax.swing.JButton();
         B10 = new javax.swing.JButton();
         EnviarBoton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 255));
@@ -176,7 +181,7 @@ public class VentanaDeportes extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Noto Mono", 0, 36)); // NOI18N
         jLabel2.setText("Contador");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -323,6 +328,9 @@ public class VentanaDeportes extends javax.swing.JFrame {
             }
         });
 
+        EnviarBoton.setBackground(new java.awt.Color(0, 0, 0));
+        EnviarBoton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        EnviarBoton.setForeground(new java.awt.Color(255, 255, 255));
         EnviarBoton.setText("Cambiar Pregunta");
         EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,18 +338,26 @@ public class VentanaDeportes extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel3.setText("Puntuación");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(B11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(B1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(B11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(B1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(B12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -361,16 +377,16 @@ public class VentanaDeportes extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(B15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(B5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(B10, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(B10, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 35, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,19 +435,23 @@ public class VentanaDeportes extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 8, 90, 8);
         jPanel1.add(jPanel3, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Miriam Libre", 1, 36)); // NOI18N
         jLabel1.setText("Pregunta");
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("Puntuación");
-        jPanel1.add(jLabel3, new java.awt.GridBagConstraints());
+        jButton1.setBackground(new java.awt.Color(0, 255, 0));
+        jButton1.setText("CORRECTO");
+        jPanel1.add(jButton1, new java.awt.GridBagConstraints());
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 0));
+        jButton2.setText("INCORRECTO");
+        jPanel1.add(jButton2, new java.awt.GridBagConstraints());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1488, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,6 +463,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(0).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -451,10 +473,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B1);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B1);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton2.setEnabled(true);
 
             }
         } catch (SQLException e) {
@@ -466,6 +490,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(1).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -474,10 +500,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B2);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B2);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton2.setEnabled(true);
 
             }
         } catch (SQLException e) {
@@ -489,12 +517,14 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
         habilitarBoton();
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
         if (preguntasDeportes.size() <= 1) {
             if (!preguntasDeportes.isEmpty()) {
                 jLabel1.setText(preguntasDeportes.firstKey());
                 preguntasDeportes.remove(preguntasDeportes.firstKey());
             } else {
-                JOptionPane.showMessageDialog(null, "Has perdio");
+                JOptionPane.showMessageDialog(null, "Te has quedado sin preguntas, juego acabado");
             }
         } else {
             preguntasDeportes.remove(preguntasDeportes.firstKey());
@@ -506,6 +536,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(2).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -514,11 +546,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B3);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B3);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -529,6 +562,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(3).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -537,11 +572,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B4);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B4);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -552,6 +588,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(4).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -560,11 +598,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B5);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B5);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -575,6 +614,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(5).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -583,11 +624,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B6);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B6);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -598,6 +640,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(6).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -606,11 +650,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B7);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B7);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -621,6 +666,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(7).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -629,11 +676,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B8);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B8);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -644,6 +692,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(8).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -652,11 +702,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B9);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B9);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -667,6 +718,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(9).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -675,11 +728,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B10);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B10);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -690,6 +744,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B11ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(10).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -698,11 +754,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B11);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B11);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -713,6 +770,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B12ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(11).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -721,11 +780,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B12);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B12);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -736,6 +796,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B13ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(12).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -744,11 +806,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B13);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B13);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -759,6 +822,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B14ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(13).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -767,11 +832,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B14);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B14);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -782,6 +848,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
 
     private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
         try {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
             ArrayList<PreguntasDeportes> listaRespuestas = this.controlar.ObtenerTodasDatosDeportes();
             String respuesta = preguntasDeportes.get(preguntasDeportes.firstKey());
             if (listaRespuestas.get(14).getNacionalidad().equalsIgnoreCase(respuesta)
@@ -790,11 +858,12 @@ public class VentanaDeportes extends javax.swing.JFrame {
                 deshabilitarBoton(B15);
                 puntos = puntos + 5;
                 jLabel3.setText(String.valueOf(puntos));
+                jButton1.setEnabled(true);
             } else {
                 deshabilitarBoton(B15);
                 puntos = puntos - 3;
                 jLabel3.setText(String.valueOf(puntos));
-
+                jButton2.setEnabled(true);
             }
         } catch (SQLException e) {
             e.getMessage();
@@ -906,6 +975,8 @@ public class VentanaDeportes extends javax.swing.JFrame {
     private javax.swing.JButton B8;
     private javax.swing.JButton B9;
     private javax.swing.JButton EnviarBoton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

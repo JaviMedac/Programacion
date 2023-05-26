@@ -38,6 +38,7 @@ public class Logros extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +46,7 @@ public class Logros extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Liberation Mono", 0, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 0, 0));
         jButton4.setText("Logro 4 - BLOQUEADO");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +56,7 @@ public class Logros extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setFont(new java.awt.Font("Liberation Mono", 0, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Logro 3 - BLOQUEADO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +66,7 @@ public class Logros extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Liberation Mono", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Logro 2 - BLOQUEADO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +76,7 @@ public class Logros extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Liberation Mono", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Logro 1 - BLOQUEADO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +85,19 @@ public class Logros extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft Himalaya", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LOGROS");
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 0));
+        jButton5.setFont(new java.awt.Font("Liberation Mono", 0, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 0, 0));
+        jButton5.setText("Logro 5 - BLOQUEADO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,23 +106,27 @@ public class Logros extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1)
+                        .addGap(0, 173, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jLabel1)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,7 +134,9 @@ public class Logros extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,7 +167,7 @@ public class Logros extends javax.swing.JFrame {
         if (jButton4.getText().equalsIgnoreCase("Logro 4 - BLOQUEADO")) {
             JOptionPane.showMessageDialog(null, "ESTE LOGRO ESTÁ BLOQUEADO");
         } else {
-            this.nombre = "¡No lees las normas!";
+            this.nombre = "¡Eres demasiado rápido!";
             this.descripcion = "Te has quedado sin preguntas";
             JOptionPane.showMessageDialog(null, nombre + "\n" + descripcion);
         }
@@ -171,6 +192,16 @@ public class Logros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, nombre + "\n" + descripcion);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (jButton5.getText().equalsIgnoreCase("Logro 5 - BLOQUEADO")) {
+            JOptionPane.showMessageDialog(null, "ESTE LOGRO ESTÁ BLOQUEADO");
+        } else {
+            this.nombre = "¡Logro Maestro!";
+            this.descripcion = "Has conseguido todos los logros en una partida";
+            JOptionPane.showMessageDialog(null, nombre + "\n" + descripcion);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,19 +240,23 @@ public class Logros extends javax.swing.JFrame {
 
     public void llenarLogros(String nombreLogro) {
         if (nombreLogro.equalsIgnoreCase(jButton1.getText())) {
-            jButton1.setText("Logro 1");
+            jButton1.setText("Ambicioso I");
 
         }
         if (nombreLogro.equalsIgnoreCase(jButton2.getText())) {
-            jButton2.setText("Logro 2");
+            jButton2.setText("Ambicioso II");
 
         }
         if (nombreLogro.equalsIgnoreCase(jButton3.getText())) {
-            jButton3.setText("Logro 3");
+            jButton3.setText("Ambicioso III");
 
         }
         if (nombreLogro.equalsIgnoreCase(jButton4.getText())) {
-            jButton4.setText("Logro 4");
+            jButton4.setText("Precoz");
+
+        }
+        if (nombreLogro.equalsIgnoreCase(jButton5.getText())) {
+            jButton5.setText("Maestro");
 
         }
         
@@ -234,6 +269,7 @@ public class Logros extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
