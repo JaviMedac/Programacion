@@ -1,0 +1,13 @@
+----- YOSHILIST ----
+Producto: Oreo
+Unidades: 2
+Producto: Lotus
+Unidades: 5
+Producto: Alba
+Unidades: 1
+Producto: YOSHI
+Unidades: 45
+Producto: TEST
+Unidades: 123441
+Producto: javi
+Unidades: 12
