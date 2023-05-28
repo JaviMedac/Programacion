@@ -317,9 +317,10 @@ public class Main extends javax.swing.JFrame {
 
                 bufferedwriter.write("----- YOSHILIST ----\n" + "Producto: " + list.get(i).getNombre() + "\n" + "Unidades: " + list.get(i).getUnidades() + "\n");
 
-                JOptionPane.showMessageDialog(rootPane, "TICKET IMPRIMIDO CORRECTAMENTE!");
+                
 
             }
+            JOptionPane.showMessageDialog(rootPane, "TICKET IMPRIMIDO CORRECTAMENTE!");
             bufferedwriter.close();
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
